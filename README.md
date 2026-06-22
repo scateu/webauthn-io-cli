@@ -19,7 +19,7 @@ chmod +x webauthn_client.sh
 # Files
 
  - `./cookiejar` will keep the `sessionid`, which is assigned and changed via HTTP GET method when accessing `https://webauthn.io`
- - `./keystore` will keep the private keys from 
+ - `./keystore` will keep the private keys from the local virtual soft authenticator.
 
 # TODO
 
