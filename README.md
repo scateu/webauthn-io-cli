@@ -23,7 +23,7 @@ chmod +x webauthn_client.sh
 
 # TODO
 
- - [ ] support Attestation Certificate
+ - [ ] support Attestation Certificate; saved in KeyChain Access App
  - [ ] support CTAP2
  - [ ] support SE, keychains.app to protect private keys
 
