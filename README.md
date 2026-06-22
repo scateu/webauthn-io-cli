@@ -25,3 +25,7 @@ chmod +x webauthn_client.sh
 
  - [ ] support Attestation Certificate
  - [ ] support CTAP2
+
+# Video Demo
+
+<https://youtu.be/bZNEjhtW7Wc>
