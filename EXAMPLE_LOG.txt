@@ -1,0 +1,145 @@
+============================================
+  WebAuthn.io Full Flow Test
+  Username: testuser_1782109458_36208
+============================================
+
+=== PHASE 1: REGISTRATION ===
+
+[STEP] Getting sessionid to make django happy...
+[STEP] Starting registration for user: testuser_1782109458_36208
+[STEP] 1/2: Requesting registration options from server...
+[INFO] Request body:
+{
+  "username": "testuser_1782109458_36208",
+  "user_verification": "preferred",
+  "attestation": "none",
+  "attachment": "all",
+  "algorithms": [
+    "ed25519",
+    "es256",
+    "rs256"
+  ],
+  "discoverable_credential": "preferred",
+  "hints": []
+}
+[OK] Received registration options from server
+[INFO] Server response (options):
+{
+  "rp": {
+    "name": "webauthn.io",
+    "id": "webauthn.io"
+  },
+  "user": {
+    "id": "d2ViYXV0aG5pby10ZXN0dXNlcl8xNzgyMTA5NDU4XzM2MjA4",
+    "name": "testuser_1782109458_36208",
+    "displayName": "testuser_1782109458_36208"
+  },
+  "challenge": "yEfv_V8xtIxoIKoLdVlA-pe1BccyGjC4UeGm05Mgk0W2STuo7xKMgyM8vlT_7mqmToq_3ZiLoGarXuoRF5xkPw",
+  "pubKeyCredParams": [
+    {
+      "type": "public-key",
+      "alg": -8
+    },
+    {
+      "type": "public-key",
+      "alg": -7
+    },
+    {
+      "type": "public-key",
+      "alg": -257
+    }
+  ],
+  "timeout": 60000,
+  "excludeCredentials": [],
+  "authenticatorSelection": {
+    "residentKey": "preferred",
+    "requireResidentKey": false,
+    "userVerification": "preferred"
+  },
+  "attestation": "none",
+  "hints": [],
+  "extensions": {
+    "credProps": true
+  }
+}
+[INFO] Challenge: yEfv_V8xtIxoIKoLdVlA-pe1BccyGjC4UeGm05Mgk0W2STuo7xKMgyM8vlT_7mqmToq_3ZiLoGarXuoRF5xkPw
+[STEP] Running software authenticator (makeCredential)...
+[OK] Software authenticator created credential
+[INFO] Credential response:
+{
+  "username": "testuser_1782109458_36208",
+  "response": {
+    "id": "OGbMXktxVxd_fL5LcwGS2rYpPJGQVeOI0WiFQc46zrE",
+    "rawId": "OGbMXktxVxd_fL5LcwGS2rYpPJGQVeOI0WiFQc46zrE",
+    "type": "public-key",
+    "response": {
+      "attestationObject": "o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVikdKbqkhPJnC90siSSsyDPQCYqlMGpUKA5fyklC2CEHvBFAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDhmzF5LcVcXf3y-S3MBktq2KTyRkFXjiNFohUHOOs6xpQECAyYgASFYIFcjtRlUhd3tfzxB_t-F3ubU8Fc2REwHufrCoLDW833zIlgg8aixYz_Db4ZCLFv2xi5BHHvXjWNITeVaFg7lFBMgxwc",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoieUVmdl9WOHh0SXhvSUtvTGRWbEEtcGUxQmNjeUdqQzRVZUdtMDVNZ2swVzJTVHVvN3hLTWd5TTh2bFRfN21xbVRvcV8zWmlMb0dhclh1b1JGNXhrUHciLCJvcmlnaW4iOiJodHRwczovL3dlYmF1dGhuLmlvIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ"
+    }
+  },
+  "authenticatorAttachment": "platform",
+  "clientExtensionResults": {}
+}
+[STEP] 2/2: Sending credential to server for verification...
+[INFO] Server verification response:
+{
+  "verified": true
+}
+[OK] Registration successful! ✓
+
+=== PHASE 2: AUTHENTICATION ===
+
+[STEP] Getting sessionid to make django happy...
+[STEP] Starting authentication for user: testuser_1782109458_36208
+[STEP] 1/2: Requesting authentication options from server...
+[INFO] Request body:
+{
+  "hints": [],
+  "user_verification": "preferred",
+  "username": "testuser_1782109458_36208"
+}
+[OK] Received authentication options from server
+[INFO] Server response (options):
+{
+  "challenge": "N1CmtM0CE9iWYjCVCs3YUPmz4F8bnYGPOgDd-UHfifs_nvtHcupX0BdVAIs1JXwniQZM0TEqbNXL_lOtKXUZ3g",
+  "timeout": 60000,
+  "rpId": "webauthn.io",
+  "allowCredentials": [
+    {
+      "id": "OGbMXktxVxd_fL5LcwGS2rYpPJGQVeOI0WiFQc46zrE",
+      "type": "public-key"
+    }
+  ],
+  "userVerification": "preferred",
+  "hints": []
+}
+[STEP] Running software authenticator (getAssertion)...
+[OK] Software authenticator created assertion
+[INFO] Assertion response:
+{
+  "username": "testuser_1782109458_36208",
+  "response": {
+    "id": "OGbMXktxVxd_fL5LcwGS2rYpPJGQVeOI0WiFQc46zrE",
+    "rawId": "OGbMXktxVxd_fL5LcwGS2rYpPJGQVeOI0WiFQc46zrE",
+    "type": "public-key",
+    "response": {
+      "authenticatorData": "dKbqkhPJnC90siSSsyDPQCYqlMGpUKA5fyklC2CEHvAFAAAAAQ",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoiTjFDbXRNMENFOWlXWWpDVkNzM1lVUG16NEY4Ym5ZR1BPZ0RkLVVIZmlmc19udnRIY3VwWDBCZFZBSXMxSlh3bmlRWk0wVEVxYk5YTF9sT3RLWFVaM2ciLCJvcmlnaW4iOiJodHRwczovL3dlYmF1dGhuLmlvIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+      "signature": "MEUCIGS52pmg7ymB2Ah-RzsNWBRSIqNIOdgHgrB_UFdhO_h4AiEA0ovJaZg3076b5AhSkDpuygidwdNHvJaE_aZmcTi_mTQ",
+      "userHandle": "d2ViYXV0aG5pby10ZXN0dXNlcl8xNzgyMTA5NDU4XzM2MjA4"
+    },
+    "authenticatorAttachment": "platform",
+    "clientExtensionResults": {}
+  }
+}
+[STEP] 2/2: Sending assertion to server for verification...
+[INFO] Server verification response:
+{
+  "verified": true
+}
+[OK] Authentication successful! ✓
+
+============================================
+  ALL TESTS PASSED ✓
+============================================
+
