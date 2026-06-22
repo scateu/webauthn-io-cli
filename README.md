@@ -30,7 +30,8 @@ python attested_soft_authenticator.py gen-self-signed
 
 # TODO
 
- - [ ] support Attestation Certificate; saved in KeyChain Access App
+ - [x] support Attestation Certificate; 
+ - [ ] Attestation Certificate saved in KeyChain Access App
  - [ ] support CTAP2
  - [ ] support SE, keychains.app to protect private keys
 

@@ -8,7 +8,7 @@ Extends the soft authenticator with "packed" attestation support:
   - macOS Keychain import of attestation certificates
 
 Attestation format: "packed" (with full attestation statement)
-See: /fwd?q=aHR0cHM6Ly93d3cudzMub3JnL1RSL3dlYmF1dGhuLTIvI3Njtn-packed-attestation
+See: https://www.w3.org/TR/webauthn-2/#sctn-packed-attestation
 
 Usage:
   # Generate a self-signed attestation certificate
