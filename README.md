@@ -25,6 +25,7 @@ chmod +x webauthn_client.sh
 
  - [ ] support Attestation Certificate
  - [ ] support CTAP2
+ - [ ] support SE, keychains.app to protect private keys
 
 # Video Demo
 
