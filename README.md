@@ -10,6 +10,10 @@ Keys are saved in the built-in local soft (virtual) authenticator.
 python3 -m venv venv
 source venv/bin/activate
 pip install cryptography cbor2 
+
+chmod +x webauthn_client.sh
+./webauthn_client.sh register testuser1
+./webauthn_client.sh login testuser1
 ```
 
 # Files
