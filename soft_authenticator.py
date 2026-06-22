@@ -476,7 +476,7 @@ def get_assertion(options_json: str) -> str:
     client_data = {
         "type": "webauthn.get",
         "challenge": challenge_b64,
-        "origin": f"/fwd?q=aHR0cHM6Ly97cnBfaWR9",
+        "origin": f"https://webauthn.io",
         "crossOrigin": False,
     }
     client_data_json = json.dumps(client_data, separators=(",", ":")).encode("utf-8")
@@ -495,7 +495,7 @@ def get_assertion(options_json: str) -> str:
     user_handle_b64 = meta.get("user_id", "")
 
     response = {
-        "username": user_name,
+        "username": meta.get("username",""),
         "response": {
             "id": credential_id_b64,
             "rawId": credential_id_b64,

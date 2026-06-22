@@ -93,6 +93,12 @@ check_deps() {
 # ---------------------------------------------------------------------------
 
 do_register() {
+    log_step "Getting sessionid to make django happy..."
+    curl -s -o /dev/null -X GET \
+        "${BASE_URL}" \
+        -c "$COOKIE_JAR" \
+	-b "$COOKIE_JAR"
+
     local username="$1"
     log_step "Starting registration for user: ${username}"
 
@@ -135,7 +141,7 @@ EOF
         "${BASE_URL}/registration/options" \
         -H "Content-Type: application/json" \
         -c "$COOKIE_JAR" \
-        -b "$COOKIE_JAR" \
+	-b "$COOKIE_JAR" \
         -d "$reg_options_request")
 
     local http_status
@@ -197,7 +203,7 @@ print(pub.get('challenge', 'N/A'))
         "${BASE_URL}/registration/verification" \
         -H "Content-Type: application/json" \
         -c "$COOKIE_JAR" \
-        -b "$COOKIE_JAR" \
+	-b "$COOKIE_JAR" \
         -d "$credential_response")
 
     log_info "Server verification response:"
@@ -235,6 +241,12 @@ else:
 # ---------------------------------------------------------------------------
 
 do_login() {
+    log_step "Getting sessionid to make django happy..."
+    curl -s -o /dev/null -X GET \
+        "${BASE_URL}" \
+        -c "$COOKIE_JAR" \
+	-b "$COOKIE_JAR"
+
     local username="$1"
     log_step "Starting authentication for user: ${username}"
 
@@ -244,7 +256,7 @@ do_login() {
     #     { "username": "<username>",
     #       "userVerification": "preferred" }
     #
-    #   Response: PublicKeyCredentialRequestOptions (JSON)
+    #   Response: PublicKeyCredentialRequestOptions ()
     #     Contains: challenge, rpId, allowCredentials, timeout, etc.
     # ------------------------------------------------------------------
     log_step "1/2: Requesting authentication options from server..."
@@ -267,8 +279,10 @@ EOF
         "${BASE_URL}/authentication/options" \
         -H "Content-Type: application/json" \
         -c "$COOKIE_JAR" \
-        -b "$COOKIE_JAR" \
+	-b "$COOKIE_JAR" \
         -d "$auth_options_request")
+ #确实是这个bug
+        #-b "csrftoken=b0e6B2qL52cEghc0TlmC1k9m8BCmMSuN; sessionid=c03qjl9n5r8vjrva3konlv1q1deqlypv" \
 
     # Validate
     if ! echo "$auth_options_response" | python3 -c "import sys,json; json.load(sys.stdin)" 2>/dev/null; then
@@ -333,7 +347,7 @@ else:
         "${BASE_URL}/authentication/verification" \
         -H "Content-Type: application/json" \
         -c "$COOKIE_JAR" \
-        -b "$COOKIE_JAR" \
+	-b "$COOKIE_JAR" \
         -d "$assertion_response")
 
     log_info "Server verification response:"
