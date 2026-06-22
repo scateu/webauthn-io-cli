@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# webauthn_client.sh — Register and log in to /fwd?q=aHR0cHM6Ly93ZWJhdXRobi5pbw==
+# webauthn_client.sh — Register and log in to https://webauthn.io
 #                      using curl + a Python software authenticator
 #
 # Usage:

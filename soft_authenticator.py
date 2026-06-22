@@ -83,7 +83,7 @@ def encode_public_key_cose(public_key: ec.EllipticCurvePublicKey) -> bytes:
 
 # ---------------------------------------------------------------------------
 # Authenticator Data construction
-# See: /fwd?q=aHR0cHM6Ly93d3cudzMub3JnL1RSL3dlYmF1dGhuLTIvI3NjdG4tYXV0aGVudGljYXRvci1kYXRh
+# See: https://www.w3.org/TR/webauthn-2/#sctn-authenticator-data
 # ---------------------------------------------------------------------------
 
 def build_auth_data_register(
