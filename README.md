@@ -14,6 +14,13 @@ pip install cryptography cbor2
 chmod +x webauthn_client.sh
 ./webauthn_client.sh register testuser1
 ./webauthn_client.sh login testuser1
+
+ln -s unattested_soft_authenticator.py soft_authenticator.py
+
+# or.. attested one
+ln -s attested_soft_authenticator.py soft_authenticator.py
+export WEBAUTHN_ATTESTATION_DIR=attestation 
+python attested_soft_authenticator.py gen-self-signed 
 ```
 
 # Files

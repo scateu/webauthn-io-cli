@@ -1,0 +1,133 @@
+./webauthn_client.sh register aaab
+[STEP] Getting sessionid to make django happy...
+[STEP] Starting registration for user: aaab
+[STEP] 1/2: Requesting registration options from server...
+[INFO] Request body:
+{
+  "username": "aaab",
+  "user_verification": "preferred",
+  "attestation": "none",
+  "attachment": "all",
+  "algorithms": [
+    "ed25519",
+    "es256",
+    "rs256"
+  ],
+  "discoverable_credential": "preferred",
+  "hints": []
+}
+[OK] Received registration options from server
+[INFO] Server response (options):
+{
+  "rp": {
+    "name": "webauthn.io",
+    "id": "webauthn.io"
+  },
+  "user": {
+    "id": "d2ViYXV0aG5pby1hYWFi",
+    "name": "aaab",
+    "displayName": "aaab"
+  },
+  "challenge": "mc15IwXtTx6a16oitv45Ia5L4yJQOtzaTdUUDWbKnfyn4P49VeyIAV5H4Qtm0X8Fmh35N5F4n3jacGb-k581GA",
+  "pubKeyCredParams": [
+    {
+      "type": "public-key",
+      "alg": -8
+    },
+    {
+      "type": "public-key",
+      "alg": -7
+    },
+    {
+      "type": "public-key",
+      "alg": -257
+    }
+  ],
+  "timeout": 60000,
+  "excludeCredentials": [],
+  "authenticatorSelection": {
+    "residentKey": "preferred",
+    "requireResidentKey": false,
+    "userVerification": "preferred"
+  },
+  "attestation": "none",
+  "hints": [],
+  "extensions": {
+    "credProps": true
+  }
+}
+[INFO] Challenge: mc15IwXtTx6a16oitv45Ia5L4yJQOtzaTdUUDWbKnfyn4P49VeyIAV5H4Qtm0X8Fmh35N5F4n3jacGb-k581GA
+[STEP] Running software authenticator (makeCredential)...
+Using packed attestation (attested)
+[OK] Software authenticator created credential
+[INFO] Credential response:
+{
+  "username": "aaab",
+  "response": {
+    "id": "2F2TOA0pSZxJEQFlLV0g9-ehWEoqYB23aq2DAV1TQj8",
+    "rawId": "2F2TOA0pSZxJEQFlLV0g9-ehWEoqYB23aq2DAV1TQj8",
+    "type": "public-key",
+    "response": {
+      "attestationObject": "o2NmbXRmcGFja2VkZ2F0dFN0bXSjY2FsZyZjc2lnWEgwRgIhAMzhrpVX_8BvC4MRamlca5Gav-m0mrMKHE6EWWDrdeFOAiEAnOlg9noUB2wx397DKChefvgcyJ0Tm-JuFsW4zheSU-BjeDVjgVkCPjCCAjowggHhoAMCAQICFDRK4NpYVNmj00mCninz3rs6PjjsMAoGCCqGSM49BAMCMHsxJzAlBgNVBAMMHlNvZnQgQXV0aGVudGljYXRvciBBdHRlc3RhdGlvbjEfMB0GA1UECgwWU29mdHdhcmUgQXV0aGVudGljYXRvcjEiMCAGA1UECwwZQXV0aGVudGljYXRvciBBdHRlc3RhdGlvbjELMAkGA1UEBhMCVVMwHhcNMjYwNjIyMDgxNDE1WhcNMzYwNjE5MDgxNDE1WjB7MScwJQYDVQQDDB5Tb2Z0IEF1dGhlbnRpY2F0b3IgQXR0ZXN0YXRpb24xHzAdBgNVBAoMFlNvZnR3YXJlIEF1dGhlbnRpY2F0b3IxIjAgBgNVBAsMGUF1dGhlbnRpY2F0b3IgQXR0ZXN0YXRpb24xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvX-Z3uM6wvsvu_VV3szAQMoxf6iwlhh_eoeV8LrwrkCTkhYddBXt24Uo7So-mJoajVRBikAp453pMlybqj95HqNDMEEwDAYDVR0TAQH_BAIwADAOBgNVHQ8BAf8EBAMCB4AwIQYLKwYBBAGC5RwBAQQEEgQQ8PDw8PDw8PDw8PDw8PDw8DAKBggqhkjOPQQDAgNHADBEAiB7XYEkqzeql0I9BnzS3YcGBXVjakBY7DRv4axVejgYqAIgXpRhSPYHNHl9Yd70quE-u2S37LgcOZnNnUFY_8VBcmJoYXV0aERhdGFYpHSm6pITyZwvdLIkkrMgz0AmKpTBqVCgOX8pJQtghB7wRQAAAADw8PDw8PDw8PDw8PDw8PDwACDYXZM4DSlJnEkRAWUtXSD356FYSipgHbdqrYMBXVNCP6UBAgMmIAEhWCDZ6g3EprPkJaMiYF3cZHvOSXTjdv_ZYSlcxsMdYJXUpiJYICx3ZbxLKObux4PLlPzUhAF-6Em7oi_rqav15OF12fcy",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIiwiY2hhbGxlbmdlIjoibWMxNUl3WHRUeDZhMTZvaXR2NDVJYTVMNHlKUU90emFUZFVVRFdiS25meW40UDQ5VmV5SUFWNUg0UXRtMFg4Rm1oMzVONUY0bjNqYWNHYi1rNTgxR0EiLCJvcmlnaW4iOiJodHRwczovL3dlYmF1dGhuLmlvIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ"
+    },
+    "authenticatorAttachment": "platform",
+    "clientExtensionResults": {}
+  }
+}
+[STEP] 2/2: Sending credential to server for verification...
+[INFO] Server verification response:
+{
+  "verified": true
+}
+[OK] Registration successful! ✓
+(venv) k@ks-MacBook-Pro curl-passkey % ./webauthn_client.sh login aaab   
+[STEP] Getting sessionid to make django happy...
+[STEP] Starting authentication for user: aaab
+[STEP] 1/2: Requesting authentication options from server...
+[INFO] Request body:
+{
+  "hints": [],
+  "user_verification": "preferred",
+  "username": "aaab"
+}
+[OK] Received authentication options from server
+[INFO] Server response (options):
+{
+  "challenge": "nkZXX8Zc4XMoIWWhIdQX3gnRInzaaO6Ff8uBl5h39BeRhxL5G_SY5iQAo8rQCgud0jW_Ja0xxF_0zjXhJaKdLQ",
+  "timeout": 60000,
+  "rpId": "webauthn.io",
+  "allowCredentials": [
+    {
+      "id": "2F2TOA0pSZxJEQFlLV0g9-ehWEoqYB23aq2DAV1TQj8",
+      "type": "public-key"
+    }
+  ],
+  "userVerification": "preferred",
+  "hints": []
+}
+[STEP] Running software authenticator (getAssertion)...
+[OK] Software authenticator created assertion
+[INFO] Assertion response:
+{
+  "username": "aaab",
+  "response": {
+    "id": "2F2TOA0pSZxJEQFlLV0g9-ehWEoqYB23aq2DAV1TQj8",
+    "rawId": "2F2TOA0pSZxJEQFlLV0g9-ehWEoqYB23aq2DAV1TQj8",
+    "type": "public-key",
+    "response": {
+      "authenticatorData": "dKbqkhPJnC90siSSsyDPQCYqlMGpUKA5fyklC2CEHvAFAAAAAQ",
+      "clientDataJSON": "eyJ0eXBlIjoid2ViYXV0aG4uZ2V0IiwiY2hhbGxlbmdlIjoibmtaWFg4WmM0WE1vSVdXaElkUVgzZ25SSW56YWFPNkZmOHVCbDVoMzlCZVJoeEw1R19TWTVpUUFvOHJRQ2d1ZDBqV19KYTB4eEZfMHpqWGhKYUtkTFEiLCJvcmlnaW4iOiJodHRwczovL3dlYmF1dGhuLmlvIiwiY3Jvc3NPcmlnaW4iOmZhbHNlfQ",
+      "signature": "MEUCIQC2pvLrFvJbZ1t24yymcZtjckqBVWpxii6VsuAJ3r4jXwIgS2n49JjNvw5pYSEANLdjhiitUEsD6-J1YY62y8JLZ7c",
+      "userHandle": "d2ViYXV0aG5pby1hYWFi"
+    },
+    "authenticatorAttachment": "platform",
+    "clientExtensionResults": {}
+  }
+}
+[STEP] 2/2: Sending assertion to server for verification...
+[INFO] Server verification response:
+{
+  "verified": true
+}
+[OK] Authentication successful! ✓
